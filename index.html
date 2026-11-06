@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MySokol — animated logo</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:transparent}
+body{display:grid;place-items:center;overflow:hidden}
+.stage{width:min(96vw,1200px);padding:2vw}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg path{fill:transparent;stroke-width:20;stroke-linecap:round;stroke-linejoin:round}
+.svg-elem-1{stroke:#458C77;stroke-dasharray:26831.068359375;stroke-dashoffset:26831.068359375;transition:stroke-dashoffset 1.15s cubic-bezier(.47,0,.745,.715),fill .75s cubic-bezier(.47,0,.745,.715) .85s}
+.svg-elem-2{stroke:#7CB0E0;stroke-dasharray:49427.58984375;stroke-dashoffset:49427.58984375;transition:stroke-dashoffset 1.15s cubic-bezier(.47,0,.745,.715) .12s,fill .75s cubic-bezier(.47,0,.745,.715) .97s}
+.svg-elem-3{stroke:#7CB0E0;stroke-dasharray:27235.76171875;stroke-dashoffset:27235.76171875;transition:stroke-dashoffset 1.15s cubic-bezier(.47,0,.745,.715) .24s,fill .75s cubic-bezier(.47,0,.745,.715) 1.09s}
+svg.active .svg-elem-1{stroke-dashoffset:0;fill:#458C77}
+svg.active .svg-elem-2,svg.active .svg-elem-3{stroke-dashoffset:0;fill:#7CB0E0}
+@media(prefers-reduced-motion:reduce){
+ svg path{transition:none!important;stroke-dashoffset:0!important}
+ .svg-elem-1{fill:#458C77!important}
+ .svg-elem-2,.svg-elem-3{fill:#7CB0E0!important}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22000 5200" role="img" aria-label="MySokol">
+<g>
+<path class="svg-elem-1" d="M1003 3982l780 0 0 -1465 730 995 17 0 735 -1003 0 1472 792 0 0 -2562 -841 0 -685 992 -685 -992 -841 0 0 2562 0 1zm4388 0l800 0 0 -970 1091 -1592 -890 0 -594 933 -591 -933 -906 0 1091 1603 0 959z"/>
+<path class="svg-elem-2" d="M8527 4027c653,0 1087,-311 1087,-835 0,-487 -384,-678 -1003,-805 -373,-80 -465,-131 -465,-249 0,-99 88,-172 269,-172 238,0 507,88 753,253l373 -501c-293,-224 -649,-341 -1107,-341 -645,0 -1042,344 -1042,820 0,534 442,689 1014,813 365,80 454,139 454,246 0,117 -107,183 -307,183 -311,0 -607,-106 -872,-308l-415 472c330,282 784,425 1261,425l0 -1zm4642 -44l745 0 0 -663 273 -289 677 951 895 0 -1053 -1461 1019 -1102 -884 0 -926 1040 0 -1040 -745 0 0 2562zm3946 51c830,0 1452,-596 1452,-1332 0,-743 -615,-1332 -1445,-1332 -830,0 -1452,596 -1452,1332 0,743 615,1332 1445,1332zm7 -641c-407,0 -688,-322 -688,-692 0,-377 273,-692 680,-692 411,0 691,322 691,692 0,377 -273,692 -684,692l1 0zm1833 589l2048 0 0 -623 -1303 0 0 -1940 -745 0 0 2562 0 0z"/>
+<path class="svg-elem-3" d="M10131 3526c-32,-173 -81,-241 -77,-455 4,-242 42,-226 264,-271 441,-90 404,-47 884,-205 460,-153 1003,-605 1157,-1010 -71,-91 -271,-190 -415,-244 -731,-278 -1512,47 -1865,634 -132,219 -213,485 -205,799 7,234 117,634 256,752l1 0zm2598 -928c-31,552 -583,918 -1146,994 -509,69 -923,-91 -940,104 -10,102 138,393 347,447 1008,259 1920,-480 1926,-1418 1,-182 -37,-285 -67,-447 -24,-124 20,-282 -21,-455 -74,552 -239,882 -751,1164 -341,188 -753,273 -1157,302 -143,11 -325,1 -460,19 303,157 1055,63 1372,-43 281,-95 536,-257 717,-462l181 -207 0 1zm-95 -1601c12,166 54,273 31,470 -117,992 -1238,1380 -2119,1537l-104 40c952,56 1689,-306 2178,-950 216,-284 160,-933 13,-1098l1 1z"/>
+</g></svg>
+</div>
+<script>
+window.addEventListener('load',()=>{
+ const logo=document.querySelector('svg');
+ requestAnimationFrame(()=>requestAnimationFrame(()=>logo.classList.add('active')));
+});
+</script>
+</body>
+</html>
